@@ -1,6 +1,6 @@
-#include "IntervalTest.cuh"
-#include "gemmGPUCTest.cuh"
-#include "gemmGPUPyTest.cuh"
+#include "test/IntervalTest.cuh"
+#include "test/gemmGPUCTest.cuh"
+#include "test/gemmGPUPyTest.cuh"
 
 
 
@@ -13,7 +13,7 @@ int main() {
     cudaDeviceSynchronize();
 
     /// gemmGPUCTest
-    printf("--------Testing gemmGPUC API--------\n");
+    printf("--------Testing gemmGPUCUsingGPUPtr API--------\n");
     GemmCalculatesCorrectly<float>();
     GemmCalculatesCorrectly<double>();
     GemmCalculatesCorrectly<Interval<float>>();

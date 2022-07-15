@@ -6,7 +6,7 @@
 #define CUTLASSTEST_GEMMGPUPYTEST_CUH
 
 #include "gemmGPUCTest.cuh"
-#include "gemmGPU.cuh"
+#include "../src/gemmGPU.cuh"
 
 /// a wrapped system test
 

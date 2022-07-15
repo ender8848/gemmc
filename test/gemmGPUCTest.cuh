@@ -5,12 +5,11 @@
 #ifndef CUTLASSTEST_GEMMGPUCTEST_CUH
 #define CUTLASSTEST_GEMMGPUCTEST_CUH
 
-#include "gemmGPU.cuh"
-#include "cutlass/numeric_types.h"
-#include "cutlass/gemm/device/gemm.h"
-#include "cutlass/util/host_tensor.h"
-#include "cudastart.cuh"
-#include "Interval.cuh"
+#include "../src/gemmGPU.cuh"
+#include "../cutlass/numeric_types.h"
+#include "../cutlass/gemm/device/gemm.h"
+#include "../cutlass/util/host_tensor.h"
+#include "../src/Interval.cuh"
 
 template<typename T>
 __global__ void printMatrix(T* M_dev, int row, int col);
@@ -99,7 +98,7 @@ void GemmCalculatesCorrectly() {
     cudaDeviceSynchronize();
 
     // test the API
-    gemmGPUC<T>(A_dev, B_dev, C_dev, M, N, K, C_dev);
+    gemmGPUCUsingGPUPtr<T>(A_dev, B_dev, C_dev, M, N, K, C_dev);
 
     printf("equals to:\n");
     printMatrix<T><<<1, 1>>>(C_dev, M, N);

@@ -2,11 +2,11 @@
 // Created by hao on 06/07/22.
 //
 
-#include "Interval.cuh"
-#include <iostream>
-#include <cuda_runtime.h>
-#include <stdio.h>
-#include <cassert>
+#include "../src/Interval.cuh"
+#include "../../../../../usr/include/c++/11/iostream"
+#include "../../../../../usr/local/cuda/targets/x86_64-linux/include/cuda_runtime.h"
+#include "../../../../../usr/include/stdio.h"
+#include "../../../../../usr/include/c++/11/cassert"
 
 template<typename T>
 __global__ void mul(Interval<T>* dest_dev, Interval<T>* rhs_dev, bool print = false) {
