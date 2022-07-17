@@ -44,7 +44,7 @@ void canCallGemmGPUC() {
     // init will make dest zero, which is same as pyTorch init
     float a = 1.f;
     float b = 2.f;
-
+    
     initMatrix<T><<<1, 1>>>(A_dev, M, K, {a});
     cudaDeviceSynchronize();
     printMatrix<T><<<1, 1>>>(A_dev, M, K);

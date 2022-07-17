@@ -12,7 +12,7 @@ add_executable(
         src/Interval.cuh
         test/IntervalTest.cuh
         test/gemmGPUCTest.cuh
-        test/gemmGPUPyTest.cuh)
+        test/gemmGPUPyTest.cuh src/util.cuh)
 
 set_target_properties(CutlassTest PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
