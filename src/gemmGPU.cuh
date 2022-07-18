@@ -33,11 +33,11 @@ template<typename T>
 void gemmGPUCUsingGPUPtr(T* A_dev, T* B_dev, T* dest_dev, int M, int N, int K, T* bias_dev) {
     using Gemm = cutlass::gemm::device::Gemm<
             T,                                    // ElementA, namely type of A
-            cutlass::layout::ColumnMajor,         // LayoutA, column major means colum of A is contiguous in memory
+            cutlass::layout::RowMajor,         // LayoutA, column major means colum of A is contiguous in memory
             T,                                    // ElementB
-            cutlass::layout::ColumnMajor,         // LayoutB
+            cutlass::layout::RowMajor,         // LayoutB
             T,                                    // ElementOutput
-            cutlass::layout::ColumnMajor,         // LayoutOutput
+            cutlass::layout::RowMajor,         // LayoutOutput
             T,                                    // ElementAccumulator
             cutlass::arch::OpClassSimt,           // tag indicating Tensor Cores, architecture-dependent
             cutlass::arch::Sm61                   // tag indicating target GPU opcode class, architecture-dependent (61 for GTX 1060)
@@ -47,10 +47,10 @@ void gemmGPUCUsingGPUPtr(T* A_dev, T* B_dev, T* dest_dev, int M, int N, int K, T
 
     T alpha = T(1.);    // Define alpha and beta, this controls dest = alpha * A @ B + beta * bias
     T beta = T(1.);     // use 1 here to get dest = A @ B + bias
-    int lda = M;        // leading dimension of A, namely the number of rows of A
-    int ldb = K;        // leading dimension of B, namely the number of rows of B
-    int ld_dest = M;    // leading dimension of dest, namely the number of rows of dest
-    int ld_bias = M;    // leading dimension of bias, namely the number of rows of bias
+    int lda = K;        // leading dimension of A, namely the number of cols of A
+    int ldb = N;        // leading dimension of B, namely the number of cols of B
+    int ld_dest = N;    // leading dimension of dest, namely the number of cols of dest
+    int ld_bias = N;    // leading dimension of bias, namely the number of cols of bias
 
     status = gemm({
         {M,        N, K},

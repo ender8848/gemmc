@@ -33,9 +33,9 @@ void canCallGemmGPUC() {
     int K = 4;
 
     // Allocate device memory
-    cutlass::HostTensor<T, cutlass::layout::ColumnMajor> A({M, K});
-    cutlass::HostTensor<T, cutlass::layout::ColumnMajor> B({K, N});
-    cutlass::HostTensor<T, cutlass::layout::ColumnMajor> C({M, N});
+    cutlass::HostTensor<T, cutlass::layout::RowMajor> A({M, K});
+    cutlass::HostTensor<T, cutlass::layout::RowMajor> B({K, N});
+    cutlass::HostTensor<T, cutlass::layout::RowMajor> C({M, N});
 
     T *A_dev = A.device_data();
     T *B_dev = B.device_data();
