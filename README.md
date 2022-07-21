@@ -8,7 +8,6 @@ gemm API for sound calculation for VNN
 |--------|-------|
 |Linux kernel|>=5.15 (tested on Ubuntu 22.04)|
 |GPU hardware|nvidia GPU|
-|Python|>=3.9|
 |CUDA toolkit|compatible with GPU architecture|
 |CUDA driver|compatible with CUDA toolkit|
 
