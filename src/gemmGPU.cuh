@@ -9,13 +9,7 @@
 #include "../cutlass/util/host_tensor.h"
 #include "Interval.cuh"
 #include "util.cuh"
-
-enum datatype {
-    FLOAT = 0,
-    DOUBLE = 1,
-    INTV_FLOAT = 2,
-    INTV_DOUBLE = 3
-};
+#include "datatype.cuh"
 
 /*
  * C interface to do gemm on GPU

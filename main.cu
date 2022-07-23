@@ -1,6 +1,8 @@
 #include "test/IntervalTest.cuh"
 #include "test/gemmGPUCTest.cuh"
 #include "test/gemmGPUPyTest.cuh"
+#include "test/mmaGPUCTest.cuh"
+#include "src/mma.cuh"
 
 
 
@@ -26,5 +28,13 @@ int main() {
     canCallGemmGPUC<double>();
     canCallGemmGPUC<Interval<float>>();
     canCallGemmGPUC<Interval<double>>();
+
+    /// mmaGPUCTest
+    printf("--------Testing gemmGPUCUsingGPUPtr API--------\n");
+    mmaGPUCalculatesCorrectly<float>();
+    mmaGPUCalculatesCorrectly<double>();
+    mmaGPUCalculatesCorrectly<Interval<float>>();
+    // do not why, but this does not work:
+    mmaGPUCalculatesCorrectly<Interval<double>>();
     return 0;
 }
