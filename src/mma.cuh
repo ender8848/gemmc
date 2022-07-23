@@ -58,7 +58,7 @@ extern "C" {
  * @param ny: number of columns in matrix A and matrix B
  * @param dtype: datatype of matrix A and matrix B
  */
-void mmd2DGPUPy(void* dest_dev, void* A_dev, void* B_dev, int nx, int ny, datatype dtype) {
+void mma2DGPUPy(void* dest_dev, void* A_dev, void* B_dev, int nx, int ny, datatype dtype) {
     if (dtype == datatype::FLOAT) {
         auto A_dev_ = static_cast<float*>(A_dev);
         auto B_dev_ = static_cast<float*>(B_dev);
