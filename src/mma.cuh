@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "util.cuh"
 #include "Interval.cuh"
+#include "daratype.cuh"
 
 
 // kernel function
