@@ -28,6 +28,7 @@ int main() {
     canCallGemmGPUC<float>();
     canCallGemmGPUC<double>();
     canCallGemmGPUC<Interval<float>>();
+    // since the calculation core does not work, this will not work
     canCallGemmGPUC<Interval<double>>();
 
     /// mmaGPUCTest
