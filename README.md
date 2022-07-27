@@ -73,4 +73,12 @@ using Gemm = cutlass::gemm::device::Gemm<
 
 ## 6 run the test
 
-Open the root folder as a Clion project, use default settings to run the test. If the code compiles and executes successfully (with some print result), then the environment is all set up.
+In project root folder, run the following commands
+
+```
+cmake .
+make
+./CutlassTest
+```
+
+If the code compiles and executes successfully (with some print result), then the environment is all set up.
